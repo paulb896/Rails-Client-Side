@@ -40,4 +40,33 @@ $(document).ready(function() {
 
     return false
   });
+  
+  
+  function carou_init(obj){
+  			try{
+  				
+  				$('.carousel_list > li').css('left', (($('.carousel_list').width() / 2) -  ($('.carousel_list > li:first-child').width() / 2) ) + 'px');
+  				obj.parent().find('li.active').attr('class', '');
+  				obj.attr('class', 'active');
+  				obj.parent().find('li').removeClass('next prev next_next prev_prev');
+  				
+  				obj.next().attr('class', 'next');
+  				obj.prev().attr('class', 'prev');
+  				obj.next().next().attr('class', 'next_next');
+  				obj.prev().prev().attr('class', 'prev_prev');
+  					
+  			}catch(e){
+  			
+  			}
+  }
+
+  carou_init($('.carousel_list  > li:nth-child(4)'));
+  $('.carousel_list > li').click(function(){
+			carou_init($(this));
+  });
+  
 });
+
+$(document).ready(function(){
+
+		});
